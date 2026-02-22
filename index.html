@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Poem for Rhian</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f953c6, #b91d73, #f9a825, #e040fb, #00bcd4);
+            background-size: 400% 400%;
+            animation: gradientFlow 12s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            font-family: 'Nunito', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating emoji decorations */
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatUp 10s ease-in-out infinite;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .emoji:nth-child(1)  { left: 5%;  animation-delay: 0s;   font-size: 2.5rem; }
+        .emoji:nth-child(2)  { left: 15%; animation-delay: 1.5s; font-size: 1.8rem; }
+        .emoji:nth-child(3)  { left: 25%; animation-delay: 3s;   font-size: 2rem; }
+        .emoji:nth-child(4)  { left: 40%; animation-delay: 0.8s; font-size: 1.5rem; }
+        .emoji:nth-child(5)  { left: 55%; animation-delay: 2.2s; font-size: 2.2rem; }
+        .emoji:nth-child(6)  { left: 68%; animation-delay: 4s;   font-size: 1.8rem; }
+        .emoji:nth-child(7)  { left: 78%; animation-delay: 1s;   font-size: 2rem; }
+        .emoji:nth-child(8)  { left: 88%; animation-delay: 3.5s; font-size: 1.5rem; }
+
+        @keyframes floatUp {
+            0%   { transform: translateY(100vh) rotate(0deg);   opacity: 0; }
+            10%  { opacity: 0.5; }
+            90%  { opacity: 0.5; }
+            100% { transform: translateY(-150px) rotate(360deg); opacity: 0; }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 30px;
+            padding: 55px 45px;
+            max-width: 750px;
+            width: 100%;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.85) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .dedication {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #e040fb;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.8rem;
+            text-align: center;
+            background: linear-gradient(90deg, #f953c6, #b91d73, #f9a825);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: #aaa;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .rainbow-bar {
+            height: 5px;
+            background: linear-gradient(90deg, #f953c6, #f9a825, #00bcd4, #e040fb, #f953c6);
+            border-radius: 5px;
+            margin: 0 auto 35px;
+            width: 180px;
+        }
+
+        .poem {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #333;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .stanza {
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        .stanza:nth-child(1) { animation-delay: 0.4s; }
+        .stanza:nth-child(2) { animation-delay: 0.7s; }
+        .stanza:nth-child(3) { animation-delay: 1.0s; }
+        .stanza:nth-child(4) { animation-delay: 1.3s; }
+        .stanza:nth-child(5) { animation-delay: 1.6s; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .highlight {
+            font-weight: 600;
+            background: linear-gradient(90deg, #f953c6, #b91d73);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .highlight-gold {
+            font-weight: 600;
+            background: linear-gradient(90deg, #f9a825, #ff6f00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-emoji {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 10px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @media (max-width: 600px) {
+            .card { padding: 35px 25px; }
+            h1 { font-size: 2.8rem; }
+            .poem { font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating decorations -->
+    <div class="emoji">🎉</div>
+    <div class="emoji">✨</div>
+    <div class="emoji">🌙</div>
+    <div class="emoji">🎶</div>
+    <div class="emoji">💃</div>
+    <div class="emoji">🌟</div>
+    <div class="emoji">🎊</div>
+    <div class="emoji">😴</div>
+
+    <div class="card">
+        <p class="dedication">✨ A poem for ✨</p>
+        <h1>Rhian</h1>
+        <p class="subtitle">the girl who never sleeps... until she does</p>
+        <div class="rainbow-bar"></div>
+
+        <div class="poem">
+            <div class="stanza">
+                She dances when the midnight strikes,<br>
+                She's <span class="highlight">everyone's favourite</span> wherever she likes,<br>
+                The music calls and she answers first,<br>
+                For fun and laughter she has an endless thirst.
+            </div>
+
+            <div class="stanza">
+                The <span class="highlight-gold">life of the party</span>, the queen of the night,<br>
+                She sparkles and shimmers in every light,<br>
+                The last to leave, the first to say<br>
+                <em>"One more dance, and then we'll see..."</em>
+            </div>
+
+            <div class="stanza">
+                But when the morning sneaks back in,<br>
+                And sunlight taps upon the chin,<br>
+                She pulls the duvet, soft and deep,<br>
+                And gives the world the gift of sleep.
+            </div>
+
+            <div class="stanza">
+                <span class="highlight">Party hard</span> and <span class="highlight-gold">sleep till two</span>,<br>
+                There's nobody quite like you,<br>
+                A shooting star by night, a sleepy queen by day —<br>
+                Rhian, you're wonderful in every single way. 💕
+            </div>
+        </div>
+
+        <div class="footer-emoji">🎉💃🌙</div>
+    </div>
+
+</body>
+</html>
